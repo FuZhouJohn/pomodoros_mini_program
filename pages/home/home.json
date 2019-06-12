@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "z-button":"/components/button/button"
+    "z-button":"/components/button/button",
+    "clock":"/components/clock/clock"
   }
 }

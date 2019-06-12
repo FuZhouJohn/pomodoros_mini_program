@@ -1,0 +1,26 @@
+.clock {
+  width: 330rpx;
+  height: 330rpx;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.clock>image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.clock>text {
+  font-size: 26rpx;
+  color: white;
+  letter-spacing: 0.4rpx;
+}

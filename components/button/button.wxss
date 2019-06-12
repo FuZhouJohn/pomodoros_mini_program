@@ -8,7 +8,6 @@
 
 .myButton {
   width: 540rpx;
-  height: 80rpx;
   line-height: calc(80rpx - 4px);
   border: 2px solid #f6705a;
   background-color: transparent;

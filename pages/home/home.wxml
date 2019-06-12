@@ -1,2 +1,2 @@
-<z-button text='按钮' size='small' type='primary'></z-button>
-<z-button text='按钮' size='small' bindztap='test'></z-button>
+<z-button text='按钮' type='primary' bindztap='test'></z-button>
+<clock text='{{time}}'></clock>
