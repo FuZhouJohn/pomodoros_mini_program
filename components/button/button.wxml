@@ -1,0 +1,1 @@
+<button class="myButton {{size}} {{type}}" hover-class='button-hover' bindtap='onTap'>{{text}}</button>

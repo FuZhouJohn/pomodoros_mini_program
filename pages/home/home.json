@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "z-button":"/components/button/button"
+  }
+}

@@ -1,0 +1,30 @@
+.myButton::after {
+  border: none;
+}
+
+.myButton.button-hover {
+  opacity: 0.9;
+}
+
+.myButton {
+  width: 540rpx;
+  height: 80rpx;
+  line-height: calc(80rpx - 4px);
+  border: 2px solid #f6705a;
+  background-color: transparent;
+  border-radius: 15rpx;
+  font-size: 26rpx;
+  color: #f6705a;
+  letter-spacing: 0.8px;
+}
+
+.myButton.small {
+  width: 360rpx;
+}
+
+.myButton.primary {
+  border:none;
+  line-height: 80rpx;
+  background: linear-gradient(to right, #fe996f, #f6705a);
+  color:white;
+}
