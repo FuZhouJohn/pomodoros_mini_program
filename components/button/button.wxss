@@ -26,4 +26,5 @@
   line-height: 80rpx;
   background: linear-gradient(to right, #fe996f, #f6705a);
   color:white;
+  box-shadow: 0px 11rpx 32rpx 0px rgba(246,112,90,0.30);
 }

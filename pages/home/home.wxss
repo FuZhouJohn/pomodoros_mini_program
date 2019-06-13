@@ -1,0 +1,107 @@
+page {
+  background-color: #f6f6f6;
+}
+view{
+  box-sizing: border-box;
+}
+.decorativeBlock{
+  position: fixed;
+  height: 42rpx;
+  width: 100%;
+  background: linear-gradient(to bottom, #fff, rgba(0,0,0,0));
+  top: 0;
+}
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20rpx;
+}
+
+.clockWrapper {
+  height: 473rpx;
+  background-color: #EEF7F6;
+  box-shadow: 0px -2rpx 8rpx 0px rgba(0,0,0,0.10);
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.todoList {
+  box-sizing: border-box;
+  flex: 1;
+  padding: 0 11rpx;
+  height: 0;
+}
+.listWrapper{
+  position: relative;
+  padding-bottom: 66rpx;
+}
+
+.decorativeLine {
+  position: absolute;
+  width: 2rpx;
+  height: 100%;
+  background-color: #f6705a;
+  left: 41rpx;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.todoList .item {
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0rpx -2rpx 6rpx 0rpx rgba(0, 0, 0, 0.10);
+  margin-top: 24rpx;
+  font-size: 28rpx;
+  line-height: 72rpx;
+  border-radius: 7rpx;
+  display: flex;
+  align-items: center;
+}
+.radioWrapper{
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+}
+.item .statusRadio {
+  box-sizing: border-box;
+  width: 23rpx;
+  height: 23rpx;
+  border: 2rpx solid #f6705a;
+  border-radius: 50%;
+  margin-left: 31rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item.completed .statusRadio::after {
+  content: '';
+  display: block;
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background-color: #f6705a;
+}
+
+.item>text {
+  margin-left: 27rpx;
+  margin-right: 49rpx;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clockWrapper>.buttonWrapper{
+  margin-top: -36rpx;
+}
+.clockWrapper>.loginStatus{
+  font-size: 20rpx;
+  color: #f6705a;
+  text-align: center;
+  margin-top: 43rpx;
+}
+.clockWrapper>.tomatoWrapper{
+  margin-top: 10rpx;
+}

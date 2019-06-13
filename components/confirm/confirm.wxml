@@ -1,0 +1,11 @@
+<view class="mask" hidden='{{!visible}}' bindtap='closeConfirm'>
+  <view class="confirm" catchtap='stopBubble'>
+    <input placeholder='{{placeholder}}' wx:if="{{!basic}}"></input>
+    <textarea placeholder='{{placeholder}}' wx:else></textarea>
+    <view class='buttons'>
+      <view class='button ok'>确定</view>
+      <view class="border" wx:if="{{!basic}}"></view>
+      <view class='button cancel' catchtap='closeConfirm' wx:if="{{!basic}}">取消</view>
+    </view>
+  </view>
+</view>

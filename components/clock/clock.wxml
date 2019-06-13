@@ -1,4 +1,4 @@
 <view class='clock'>
   <image src='/images/tomato.png'></image>
-  <text>{{text}}</text>
+  <text class="{{bigtext?'big':''}}">{{text}}</text>
 </view>

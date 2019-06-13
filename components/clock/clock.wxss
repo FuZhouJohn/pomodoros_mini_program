@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  z-index: 1;
 }
 
 .clock>image {
@@ -23,4 +24,8 @@
   font-size: 26rpx;
   color: white;
   letter-spacing: 0.4rpx;
+}
+.clock>text.big{
+  font-size: 56rpx;
+  letter-spacing: 5px;
 }
