@@ -18,7 +18,7 @@ Component({
   },
   methods: {
     onTap:function(){
-      this.triggerEvent('ztap')
+      this.triggerEvent('ptap')
     }
   }
 })

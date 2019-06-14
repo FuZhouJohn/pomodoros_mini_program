@@ -1,4 +1,4 @@
-<view class='clock'>
+<view class='clock' hover-class='clockHover'>
   <image src='/images/tomato.png'></image>
   <text class="{{bigtext?'big':''}}">{{text}}</text>
 </view>

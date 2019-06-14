@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/pomodoro/pomodoro",
     "pages/home/home"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "番茄土豆",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
@@ -14,7 +15,7 @@
     "selectedColor":"#F6705A",
     "backgroundColor":"#ffffff",
     "list": [{
-      "pagePath": "pages/home/home",
+      "pagePath": "pages/pomodoro/pomodoro",
       "text": "专注",
       "iconPath": "images/total.png",
       "selectedIconPath": "images/total-active.png"

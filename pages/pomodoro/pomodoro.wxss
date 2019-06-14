@@ -1,0 +1,10 @@
+.container{
+  height: 100vh;
+}
+.clock{
+  padding-top: 272rpx;
+  padding-bottom: 95rpx;
+}
+.quit{
+  margin-top: 48rpx;
+}

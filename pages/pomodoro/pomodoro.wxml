@@ -1,0 +1,14 @@
+<view class='container'>
+  <view class='clock'>
+    <p-clock text='{{time}}' bigtext='{{true}}'></p-clock>
+  </view>
+  <view class='control' wx:if="{{status==='start'||status==='pause'}}">
+    <p-button size='small' text="{{status==='start'?'暂停':'继续'}}" type='primary' bindptap="{{status==='start'?'pauseTimer':'startTimer'}}"></p-button>
+  </view>
+  <view class='quit' wx:if="{{status==='start'||status==='pause'}}">
+    <p-button size='small' text='放弃'></p-button>
+  </view>
+  <view class='again' wx:if="{{status==='end'}}">
+    <p-button size='small' text='再来一次' type='primary' bindptap='againTimer'></p-button>
+  </view>
+</view>

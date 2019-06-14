@@ -1,13 +1,11 @@
 <view class="decorativeBlock"></view>
 <view class="main">
-
   <scroll-view scroll-y class="todoList">
     <view class='listWrapper'>
       <view class='item' wx:for="{{toDoList}}" wx:key='{{item.id}}'>
         <view class='radioWrapper'>
           <view class="statusRadio"></view>
         </view>
-
         <text>{{item.content}}</text>
       </view>
       <view class='decorativeLine'></view>
@@ -15,13 +13,13 @@
   </scroll-view>
   <view class='clockWrapper'>
     <view class='buttonWrapper'>
-      <z-button text="创建任务" type='primary'></z-button>
+      <p-button text="创建任务" type='primary'></p-button>
     </view>
     <view class='loginStatus'>
       <text>尚未登录</text>
     </view>
     <view class="tomatoWrapper">
-      <clock text='点击开始番茄'></clock>
+      <p-clock text='点击开始番茄'></p-clock>
     </view>
 
   </view>
