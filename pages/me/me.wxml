@@ -1,0 +1,36 @@
+<view class='container'>
+  <view class='header'>
+    <view class='avatar'>
+      <open-data type='userAvatarUrl'></open-data>
+    </view>
+    <view class="username">
+      <view class="p-title" style='font-size:32rpx'>
+        <open-data type='userNickName'></open-data>
+      </view>
+      <text>绑定PC账号</text>
+    </view>
+    <button open-type='contact' class="feedback">问题反馈</button>
+  </view>
+  <view class='tabs {{activeTab}}'>
+    <view data-index='{{0}}' bindtap='clickTab'>番茄历史</view>
+    <view data-index='{{1}}' bindtap='clickTab'>我完成的任务</view>
+    <view class='slider'></view>
+  </view>
+  <swiper class='panes' bindchange='changePane' current="{{current}}">
+    <swiper-item>
+      <scroll-view class="daliyWrapper" scroll-y>
+        <view class='daliy' wx:for='{{data}}'>
+          <view class="p-title" style='font-size:36rpx'>{{item.date}}</view>
+          <view class='detail' wx:for="{{item.list}}" wx:for-item='list'>
+            <text>{{list.time}}</text>
+            <text class="content">{{list.content}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view scroll-y style='height:100%;'>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

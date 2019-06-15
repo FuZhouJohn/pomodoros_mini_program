@@ -1,0 +1,102 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+
+.header .avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 22rpx 40rpx;
+}
+
+.header .username {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  align-items: flex-start;
+}
+
+.header .username>text {
+  font-size: 20rpx;
+  color: #f6705a;
+  margin-top: 30rpx;
+}
+
+.header .feedback::after {
+  border: none;
+}
+
+.header .feedback {
+  box-sizing: border-box;
+  width: 170rpx;
+  color: #f6705a;
+  background: transparent;
+  font-size: 20rpx;
+  margin: 0;
+}
+
+.tabs {
+  display: flex;
+  background: #fff;
+  margin-top: 23rpx;
+  position: relative;
+}
+
+.tabs .slider {
+  position: absolute;
+  width: 80rpx;
+  height: 8rpx;
+  background: linear-gradient(to right, #fe996f, #f6705a);
+  bottom: 0;
+  border-radius: 4rpx;
+  transition: all 500ms;
+}
+
+.tabs.left .slider {
+  left: calc(25% - 40rpx);
+}
+
+.tabs.right .slider {
+  left: calc(75% - 40rpx);
+}
+
+.tabs>view {
+  flex: 1;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+.panes {
+  flex: 1;
+  overflow: hidden;
+}
+.panes .daliyWrapper{
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0 20rpx 20rpx;
+}
+.panes .daliy{
+  background: #fff;
+  margin-top: 25rpx;
+  padding: 16rpx 28rpx 29rpx 40rpx;
+  border-radius: 6rpx;
+  font-size: 28rpx;
+}
+.panes .detail{
+  display: flex;
+  margin-top: 23rpx;
+}
+.panes .detail .content{
+  margin-left: 25rpx;
+}
