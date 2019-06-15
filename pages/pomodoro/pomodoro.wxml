@@ -2,8 +2,8 @@
   <view class='clock'>
     <p-clock text='{{time}}' bigtext='{{true}}'></p-clock>
   </view>
-  <view class='control' wx:if="{{status==='start'||status==='pause'}}">
-    <p-button size='small' text="{{status==='start'?'暂停':'继续'}}" type='primary' bindptap="{{status==='start'?'pauseTimer':'startTimer'}}"></p-button>
+  <view class='control' wx:if="{{status==='start'||status==='pause'||status==='initial'}}">
+    <p-button size='small' text="{{status==='start'?'暂停':status==='pause'?'继续':'开始'}}" type='primary' bindptap="{{status==='start'?'pauseTimer':'startTimer'}}"></p-button>
   </view>
   <view class='quit' wx:if="{{status==='start'||status==='pause'}}">
     <p-button size='small' text='放弃'></p-button>

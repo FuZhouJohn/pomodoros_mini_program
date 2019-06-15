@@ -4,3 +4,25 @@ page {
 view{
   box-sizing: border-box;
 }
+.p-title{
+  position: relative;
+  display: inline-block;
+  padding: 0 4rpx;
+  color: #333;
+  z-index: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+  align-self: flex-start;
+}
+.p-title::before {
+  content: '';
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: #ffdccf;
+  z-index: -1;
+}

@@ -1,7 +1,11 @@
 {
   "pages": [
+    "pages/binding/binding",
+    "pages/login/login",
+    "pages/me/me",
     "pages/pomodoro/pomodoro",
     "pages/home/home"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,6 +28,12 @@
       "text": "数据统计",
       "iconPath": "images/home.png",
       "selectedIconPath": "images/home-active.png"
+    },
+    {
+      "pagePath": "pages/me/me",
+      "text": "我的",
+      "iconPath": "images/me.png",
+      "selectedIconPath": "images/me-active.png"
     }]
   }
 }
