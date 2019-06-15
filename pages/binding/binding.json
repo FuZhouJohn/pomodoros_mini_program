@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "p-button": "/components/button/button"
+  }
+}

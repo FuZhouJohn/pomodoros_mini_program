@@ -1,0 +1,43 @@
+.container {
+  height: 100vh;
+  background: #fff;
+}
+
+.p-title {
+  margin-top: 83rpx;
+  margin-left: 44rpx;
+}
+
+.inputWrapper {
+  width: 640rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 77rpx;
+}
+
+input {
+  box-sizing: border-box;
+  border: 2rpx solid #f6705a;
+  height: 80rpx;
+  min-height: 80rpx;
+  border-radius: 6rpx;
+  color: #f6705a;
+  font-size: 24rpx;
+  padding: 0 34rpx;
+}
+
+.password {
+  margin-top: 54rpx;
+}
+
+.button{
+  margin-top: 84rpx;
+}
+
+.bottomText{
+  font-size: 20rpx;
+  color: #f6705a;
+  text-align: center;
+  margin-top: 48rpx;
+  text-decoration: underline;
+}
