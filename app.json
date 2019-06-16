@@ -1,11 +1,10 @@
 {
   "pages": [
-    "pages/binding/binding",
     "pages/login/login",
+    "pages/binding/binding",
     "pages/me/me",
     "pages/pomodoro/pomodoro",
     "pages/home/home"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,25 +14,28 @@
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
-    "color":"#7F8389",
-    "selectedColor":"#F6705A",
-    "backgroundColor":"#ffffff",
-    "list": [{
-      "pagePath": "pages/pomodoro/pomodoro",
-      "text": "专注",
-      "iconPath": "images/total.png",
-      "selectedIconPath": "images/total-active.png"
-    },{
-      "pagePath": "pages/home/home",
-      "text": "数据统计",
-      "iconPath": "images/home.png",
-      "selectedIconPath": "images/home-active.png"
-    },
-    {
-      "pagePath": "pages/me/me",
-      "text": "我的",
-      "iconPath": "images/me.png",
-      "selectedIconPath": "images/me-active.png"
-    }]
+    "color": "#7F8389",
+    "selectedColor": "#F6705A",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/pomodoro/pomodoro",
+        "text": "专注",
+        "iconPath": "images/total.png",
+        "selectedIconPath": "images/total-active.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "数据统计",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me-active.png"
+      }
+    ]
   }
 }
