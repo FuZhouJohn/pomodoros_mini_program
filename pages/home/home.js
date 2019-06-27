@@ -1,5 +1,6 @@
-let ms = 1500000
-let id = null
+const {
+  http
+} = require('../../lib/http.js') 
 Page({
 
   data: {
@@ -106,7 +107,10 @@ Page({
   },
 
   onLoad: function(options) {
-
+    http.get('/todos')
+    .then(res=>{
+      console.log(res)
+    })
   },
 
   onReady: function() {

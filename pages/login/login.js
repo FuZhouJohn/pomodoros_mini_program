@@ -17,7 +17,7 @@ Page({
     let me = wx.getStorageSync('me')
     if (token && me) {
       wx.showLoading({
-        title: '登录中',
+        title: '登录中...',
         success: () => {
           setTimeout(() => {
             wx.switchTab({
@@ -46,6 +46,9 @@ Page({
     })
   },
   signInUser(code, iv, encrypted_data) {
+    wx.showLoading({
+      title: '登录中...',
+    })
     http.post('/sign_in/mini_program_user', {
         code,
         iv,
@@ -58,6 +61,8 @@ Page({
         wx.reLaunch({
           url: '/pages/home/home'
         })
+      })
+      .catch(error=>{
       })
   },
   saveInformation(response) {
