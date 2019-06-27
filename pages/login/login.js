@@ -12,8 +12,22 @@ Page({
   data: {
 
   },
-  onLoad: function(options) {
+  onReady: function(options) {
+    let token = wx.getStorageSync('X-token')
+    let me = wx.getStorageSync('me')
+    if (token && me) {
+      wx.showLoading({
+        title: '登录中',
+        success: () => {
+          setTimeout(() => {
+            wx.switchTab({
+              url: '/pages/home/home',
+            })
+          }, 1000)
+        }
+      })
 
+    }
   },
   login: function(e) {
     let iv = e.detail.iv
@@ -46,7 +60,7 @@ Page({
         })
       })
   },
-  saveInformation(response){
+  saveInformation(response) {
     wx.setStorageSync('me', response.data.resource)
     wx.setStorageSync("X-token", response.header['X-token'])
   }
