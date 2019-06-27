@@ -107,10 +107,7 @@ Page({
   },
 
   onLoad: function(options) {
-    http.get('/todos')
-    .then(res=>{
-      console.log(res)
-    })
+    
   },
 
   onReady: function() {
