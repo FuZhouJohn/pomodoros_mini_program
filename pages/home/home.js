@@ -12,7 +12,6 @@ Page({
   },
 
   onLoad: function(options) {
-
     http.get("/todos")
       .then(response => {
         this.setData({
