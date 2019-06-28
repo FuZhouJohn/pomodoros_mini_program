@@ -25,6 +25,9 @@ Page({
     })
   },
   addTodo(e) {
+    if(e.detail.trim()===''){
+      return
+    }
     let description = e.detail
     http.post("/todos", {
         description
