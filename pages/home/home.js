@@ -1,121 +1,67 @@
 const {
   http
-} = require('../../lib/http.js') 
+} = require('../../lib/http.js')
+
 Page({
 
   data: {
     time: '25:00',
     visible: true,
-    toDoList: [{
-        id: 1,
-        content: 'wahahahdasdasdasdasdasddddddddddddddddddddddddddddddasd',
-        completed: false
-      },
-      {
-        id: 2,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 3,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 4,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 5,
-        content: 'wahahahd',
-        completed: false
-      }, {
-        id: 1,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 2,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 3,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 4,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 5,
-        content: 'wahahahd',
-        completed: false
-      }, {
-        id: 1,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 2,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 3,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 4,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 5,
-        content: 'wahahahd',
-        completed: false
-      }, {
-        id: 1,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 2,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 3,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 4,
-        content: 'wahahahd',
-        completed: false
-      },
-      {
-        id: 5,
-        content: 'wahahahd',
-        completed: false
-      },
-    ]
+    toDoList: [],
+    visible: false
   },
 
   onLoad: function(options) {
-    
+
+    http.get("/todos")
+      .then(response => {
+        this.setData({
+          toDoList: response.data.resources
+        })
+      })
   },
-
-  onReady: function() {
-
+  openConfirm() {
+    this.setData({
+      visible: true
+    })
   },
-
+  addTodo(e) {
+    let description = e.detail
+    http.post("/todos", {
+        description
+      })
+      .then(response => {
+        let newTodo = response.data.resource
+        this.data.toDoList.unshift(newTodo)
+        this.setData({
+          toDoList: this.data.toDoList,
+          visible: false
+        })
+        this.selectComponent("#confirm1").setData({
+          content: ""
+        })
+      })
+  },
+  completeTodo(e) {
+    let index = e.currentTarget.dataset.index
+    http.put(`/todos/${this.data.toDoList[index].id}`, {
+        completed: !this.data.toDoList[index].completed,
+        description: this.data.toDoList[index].description
+      })
+      .then(response => {
+        this.setData({
+          [`toDoList[${index}].completed`]: !this.data.toDoList[index].completed
+        })
+      })
+    this.data.toDoList[index]
+  },
   onShow: function() {
-
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1
+      })
+    }
   },
   onHide: function() {
 
@@ -132,5 +78,5 @@ Page({
   onShareAppMessage: function() {
 
   }
-  
+
 })

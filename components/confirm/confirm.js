@@ -15,14 +15,21 @@ Component({
     }
   },
   data: {
-
+    content: ""
   },
   methods: {
     closeConfirm: function() {
       this.setData({
+        content: "",
         visible: false
       })
     },
-    stopBubble: function() {}
+    stopBubble: function() {},
+    inputContent: function(e) {
+      this.data.content = e.detail.value
+    },
+    ok: function() {
+      this.triggerEvent('tapOK', this.data.content)
+    }
   }
 })

@@ -5,9 +5,14 @@ Page({
     time: '25:00',
     status: 'initial' // initial、start、pause、end
   },
-  onLoad:()=>{
-  },
+  onLoad: () => {},
   onShow: function() {
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0
+      })
+    }
     this.converTime()
   },
   setTimer: function() {

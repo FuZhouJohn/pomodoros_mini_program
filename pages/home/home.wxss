@@ -1,16 +1,17 @@
-
-view{
+view {
   box-sizing: border-box;
 }
-.decorativeBlock{
+
+.decorativeBlock {
   position: fixed;
   height: 42rpx;
   width: 100%;
-  background: linear-gradient(to bottom, #fff, rgba(0,0,0,0));
+  background: linear-gradient(to bottom, #fff, rgba(0, 0, 0, 0));
   top: 0;
 }
+
 .main {
-  height: 100vh;
+  height: calc(100vh - 98rpx);
   display: flex;
   flex-direction: column;
   padding: 0 20rpx;
@@ -18,8 +19,8 @@ view{
 
 .clockWrapper {
   height: 473rpx;
-  background-color: #EEF7F6;
-  box-shadow: 0px -2rpx 8rpx 0px rgba(0,0,0,0.10);
+  background-color: #eef7f6;
+  box-shadow: 0px -2rpx 8rpx 0px rgba(0, 0, 0, 0.10);
   border-radius: 8rpx;
   margin-bottom: 20rpx;
 }
@@ -30,9 +31,12 @@ view{
   padding: 0 11rpx;
   height: 0;
 }
-.listWrapper{
+
+.listWrapper {
   position: relative;
+  padding-top: 24rpx;
   padding-bottom: 66rpx;
+  min-height: 100%;
 }
 
 .decorativeLine {
@@ -46,22 +50,27 @@ view{
   z-index: -1;
 }
 
-.todoList .item {
+.todoList .item{
   background-color: #fff;
   color: #333;
   box-shadow: 0rpx -2rpx 6rpx 0rpx rgba(0, 0, 0, 0.10);
-  margin-top: 24rpx;
   font-size: 28rpx;
   line-height: 72rpx;
   border-radius: 7rpx;
   display: flex;
   align-items: center;
 }
-.radioWrapper{
+
+.todoList .item:not(:first-of-type) {
+  margin-top: 24rpx;
+}
+
+.radioWrapper {
   height: 72rpx;
   display: flex;
   align-items: center;
 }
+
 .item .statusRadio {
   box-sizing: border-box;
   width: 23rpx;
@@ -91,15 +100,17 @@ view{
   text-overflow: ellipsis;
 }
 
-.clockWrapper>.buttonWrapper{
+.clockWrapper>.buttonWrapper {
   margin-top: -36rpx;
 }
-.clockWrapper>.loginStatus{
+
+.clockWrapper>.loginStatus {
   font-size: 20rpx;
   color: #f6705a;
   text-align: center;
   margin-top: 43rpx;
 }
-.clockWrapper>.tomatoWrapper{
+
+.clockWrapper>.tomatoWrapper {
   margin-top: 10rpx;
 }

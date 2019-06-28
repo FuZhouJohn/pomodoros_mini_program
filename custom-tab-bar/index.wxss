@@ -1,0 +1,31 @@
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 98rpx;
+  background: rgba(255, 255, 255, .8);
+  display: flex;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tab-bar-item {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  /* justify-content: center; */
+  
+  align-items: center;
+  flex-direction: column;
+}
+
+.tab-bar-item cover-image {
+  margin-top: 13rpx;
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.tab-bar-item cover-view {
+  margin-top: 9rpx;
+  font-size: 20rpx;
+}

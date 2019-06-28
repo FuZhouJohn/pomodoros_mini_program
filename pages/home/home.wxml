@@ -2,18 +2,18 @@
 <view class="main">
   <scroll-view scroll-y class="todoList">
     <view class='listWrapper'>
-      <view class='item' wx:for="{{toDoList}}" wx:key='{{item.id}}'>
-        <view class='radioWrapper'>
+      <view class='item {{item.completed?"completed":""}}' wx:for="{{toDoList}}" wx:key='{{item.id}}'>
+        <view class='radioWrapper' data-index="{{index}}" bindtap='completeTodo'>
           <view class="statusRadio"></view>
         </view>
-        <text>{{item.content}}</text>
+        <text>{{item.description}}</text>
       </view>
       <view class='decorativeLine'></view>
     </view>
   </scroll-view>
   <view class='clockWrapper'>
     <view class='buttonWrapper'>
-      <p-button text="创建任务" type='primary'></p-button>
+      <p-button text="创建任务" type='primary' bindptap="openConfirm"></p-button>
     </view>
     <view class='loginStatus'>
       <text>尚未登录</text>
@@ -21,6 +21,6 @@
     <view class="tomatoWrapper">
       <p-clock text='点击开始番茄'></p-clock>
     </view>
-
+    <p-confirm id='confirm1' visible="{{visible}}" placeholder="请输入任务内容" basic bindtapOK='addTodo'></p-confirm>
   </view>
 </view>

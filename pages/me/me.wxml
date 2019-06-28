@@ -21,7 +21,7 @@
       <scroll-view class="daliyWrapper" scroll-y>
         <view class='daliy' wx:for='{{data}}'>
           <view class="p-title" style='font-size:36rpx'>{{item.date}}</view>
-          <view class='detail' wx:for="{{item.list}}" wx:for-item='list'>
+          <view class='detail' wx:for="{{item.list}}" wx:for-item='list' wx:key='*this'>
             <text>{{list.time}}</text>
             <text class="content">{{list.content}}</text>
           </view>
