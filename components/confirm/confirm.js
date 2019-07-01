@@ -12,24 +12,37 @@ Component({
     placeholder: {
       type: String,
       value: ""
+    },
+    content: {
+      type: String,
+      value: ""
+    },
+    canClose:{
+      type:Boolean,
+      value:true
     }
   },
   data: {
-    content: ""
   },
   methods: {
     closeConfirm: function() {
-      this.setData({
-        content: "",
-        visible: false
-      })
+      if(this.data.canClose){
+        this.setData({
+          visible: false
+        }, function () {
+          this.triggerEvent('close', this.data.content)
+        })
+      }
+      
     },
-    stopBubble: function() {},
     inputContent: function(e) {
-      this.data.content = e.detail.value
+      this.triggerEvent('input', e)
     },
     ok: function() {
-      this.triggerEvent('tapOK', this.data.content)
+      this.triggerEvent('ok')
+    },
+    cancel:function(){
+      this.triggerEvent('cancel')
     }
   }
 })

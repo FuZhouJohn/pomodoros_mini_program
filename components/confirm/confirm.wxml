@@ -1,11 +1,12 @@
-<view class="mask" hidden='{{!visible}}' bindtap='closeConfirm'>
-  <view class="confirm" catchtap='stopBubble'>
+<!-- <view class="confirmWrapper" hidden='{{!visible}}'> -->
+  <view class="confirm" hidden='{{!visible}}'>
     <input value='{{content}}' placeholder='{{placeholder}}' wx:if="{{!basic}}" bindinput='inputContent'></input>
     <textarea value='{{content}}' placeholder='{{placeholder}}' wx:else bindinput='inputContent'></textarea>
     <view class='buttons'>
       <view class='button ok' bindtap='ok'>确定</view>
       <view class="border" wx:if="{{!basic}}"></view>
-      <view class='button cancel' catchtap='closeConfirm' wx:if="{{!basic}}">取消</view>
+      <view class='button cancel' bindtap='cancel' wx:if="{{!basic}}">取消</view>
     </view>
   </view>
-</view>
+  <view class="mask" bindtap='closeConfirm' hidden='{{!visible}}'>
+  </view>

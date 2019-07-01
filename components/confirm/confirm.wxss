@@ -4,11 +4,9 @@
   right: 0;
   bottom: 0;
   top: 0;
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: 1;
 }
+
 
 .confirm {
   box-sizing: border-box;
@@ -16,6 +14,11 @@
   background-color: #fff;
   padding: 26rpx 20rpx 23rpx;
   border-radius: 16rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
 }
 
 .confirm> input {
@@ -27,6 +30,7 @@
   color: #737373;
   font-size: 28rpx;
 }
+
 .confirm> textarea {
   box-sizing: border-box;
   height: 132rpx;
@@ -37,6 +41,7 @@
   color: #737373;
   font-size: 28rpx;
 }
+
 .confirm >.buttons {
   display: flex;
   margin-top: 18rpx;
@@ -47,7 +52,6 @@
   text-align: center;
   font-size: 28rpx;
   line-height: 52rpx;
-  
 }
 
 .confirm >.buttons>.button.ok {
