@@ -1,19 +1,10 @@
 <view class="container">
-  <view class="p-title" style='font-size:32rpx'>{{isBinding?'绑定PC账号':'注册PC账号'}}</view>
-  <view class='inputWrapper' wx:if='{{isBinding}}'>
-    <input class='account' placeholder='账号' placeholder-style='color:#f6705a'></input>
-    <input class='password' password placeholder='密码' placeholder-style='color:#f6705a'></input>
+  <view class="p-title" style='font-size:32rpx'>绑定PC账号</view>
+  <view class='inputWrapper'>
+    <input class='account' placeholder='账号' placeholder-style='color:#f6705a' bindinput='usernameInput'></input>
+    <input class='password' password placeholder='密码' placeholder-style='color:#f6705a' bindinput='passwordInput'></input>
   </view>
-  <view class='inputWrapper' wx:else>
-    <input class='account' placeholder='账号' placeholder-style='color:#f6705a'></input>
-    <input class='password' password placeholder='密码' placeholder-style='color:#f6705a'></input>
+  <view class='button' bindtap='bindingAccount'>
+    <p-button text='绑定' size='small' type='primary'></p-button>
   </view>
-
-  <view class='button' wx:if='{{isBinding}}'>
-    <p-button text='登录' size='small' type='primary'></p-button>
-  </view>
-  <view class='button' wx:else>
-    <p-button text='注册' size='small' type='primary'></p-button>
-  </view>
-  <view class='bottomText' bindtap='switchStatus'>{{isBinding?'还没有PC账号，注册吧兄弟':'已有PC账号，去绑定'}}</view>
 </view>
