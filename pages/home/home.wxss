@@ -69,6 +69,8 @@ view {
   height: 72rpx;
   display: flex;
   align-items: center;
+  padding-left: 31rpx;
+  padding-right: 27rpx;
 }
 
 .item .statusRadio {
@@ -77,7 +79,7 @@ view {
   height: 23rpx;
   border: 2rpx solid #f6705a;
   border-radius: 50%;
-  margin-left: 31rpx;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,7 +95,6 @@ view {
 }
 
 .item>text {
-  margin-left: 27rpx;
   margin-right: 49rpx;
   flex: 1;
   overflow: hidden;
@@ -109,6 +110,7 @@ view {
   color: #f6705a;
   text-align: center;
   margin-top: 43rpx;
+  min-height: 25rpx;
 }
 
 .clockWrapper>.tomatoWrapper {

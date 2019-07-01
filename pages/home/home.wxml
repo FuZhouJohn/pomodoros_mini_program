@@ -6,9 +6,9 @@
         <view class='radioWrapper' data-index="{{index}}" bindtap='completeTodo'>
           <view class="statusRadio"></view>
         </view>
-        <text>{{item.description}}</text>
+        <text bindtap='todoDetail' data-index="{{index}}">{{item.description}}</text>
       </view>
-      <view class='decorativeLine'></view>
+      <view wx:if="{{toDoList.length > 0}}" class='decorativeLine'></view>
     </view>
   </scroll-view>
   <view class='clockWrapper'>
@@ -16,11 +16,11 @@
       <p-button text="创建任务" type='primary' bindptap="openConfirm"></p-button>
     </view>
     <view class='loginStatus'>
-      <text>尚未登录</text>
+      <!-- <text>尚未登录</text> -->
     </view>
-    <view class="tomatoWrapper">
+    <navigator url='/pages/pomodoro/pomodoro' open-type='switchTab' hover-class='none' class="tomatoWrapper" bindtap='toPomodoros'>
       <p-clock text='点击开始番茄'></p-clock>
-    </view>
-    <p-confirm id='confirm1' visible="{{visible}}" placeholder="请输入任务内容" basic bindtapOK='addTodo'></p-confirm>
+    </navigator>
+    <p-confirm id='confirm1' content='{{content}}' visible="{{visible}}" placeholder="请输入任务内容" basic bind:ok='{{todoIndex?"updateTodo":"addTodo"}}' bind:input='todoInput' bind:close='closeConfirm'></p-confirm>
   </view>
 </view>

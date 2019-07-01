@@ -8,11 +8,12 @@ Page({
     time: '25:00',
     visible: true,
     toDoList: [],
-    visible: false
+    visible: false,
+    content:'',
   },
 
   onLoad: function(options) {
-    http.get("/todos")
+    http.get("/todos?completed=false")
       .then(response => {
         this.setData({
           toDoList: response.data.resources
@@ -24,11 +25,20 @@ Page({
       visible: true
     })
   },
+  todoInput:function(e){
+    this.setData({
+      content:e.detail.detail.value
+    })
+  },
   addTodo(e) {
-    if(e.detail.trim()===''){
+    if(this.data.content.trim()===''){
+      wx.showToast({
+        icon:'none',
+        title: '请输入任务内容'
+      })
       return
     }
-    let description = e.detail
+    let description = this.data.content.trim()
     http.post("/todos", {
         description
       })
@@ -37,12 +47,34 @@ Page({
         this.data.toDoList.unshift(newTodo)
         this.setData({
           toDoList: this.data.toDoList,
-          visible: false
-        })
-        this.selectComponent("#confirm1").setData({
+          visible: false,
           content: ""
         })
       })
+  },
+  updateTodo:function(){
+    let index = this.data.todoIndex
+    let todo = this.data.toDoList[index]
+    let description = this.data.content.trim()
+    if (description === '') {
+      wx.showToast({
+        icon: 'none',
+        title: '请输入任务内容'
+      })
+      return
+    }
+    http.put(`/todos/${todo.id}`,{
+      completed:todo.completed,
+      description: description
+    })
+    .then(res=>{
+      let newTodo = res.data.resource
+      this.setData({
+        [`toDoList[${index}].description`]: newTodo.description,
+        content:'',
+        visible:false
+      })
+    })
   },
   completeTodo(e) {
     let index = e.currentTarget.dataset.index
@@ -51,9 +83,12 @@ Page({
         description: this.data.toDoList[index].description
       })
       .then(response => {
-        this.setData({
-          [`toDoList[${index}].completed`]: !this.data.toDoList[index].completed
-        })
+        if (response.data && response.data.resource && response.data.resource.hasOwnProperty("completed")){
+          this.setData({
+            [`toDoList[${index}].completed`]: response.data.resource.completed
+          })
+        }
+        
       })
     this.data.toDoList[index]
   },
@@ -65,20 +100,20 @@ Page({
       })
     }
   },
-  onHide: function() {
-
+  todoDetail:function(e){
+    let index = e.currentTarget.dataset.index
+    let todo = this.data.toDoList[index]
+    this.setData({
+      content: todo.description,
+      todoIndex: index,
+      visible:true
+    })
   },
-  onUnload: function() {
-
-  },
-  onPullDownRefresh: function() {
-
-  },
-  onReachBottom: function() {
-
-  },
-  onShareAppMessage: function() {
-
+  closeConfirm:function(){
+    this.setData({
+      content:'',
+      todoIndex:null
+    })
   }
 
 })
