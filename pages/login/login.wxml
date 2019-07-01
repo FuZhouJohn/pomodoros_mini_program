@@ -6,5 +6,5 @@
     <open-data type='userNickName'></open-data>
   </view>
   <button open-type='getUserInfo' class='loginBtn' bindgetuserinfo='login'>登录</button>
-  <text class='binding'>还没有与pc端绑定？去绑定 ></text>
+  <!-- <text class='binding'>还没有与pc端绑定？去绑定 ></text> -->
 </view>
