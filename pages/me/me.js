@@ -1,9 +1,14 @@
 // pages/me/me.js
+const {
+  http
+} = require('../../lib/http.js')
 Page({
   data: {
     current: 0,
     activeTab: 'left',
-    data: []
+    data: [],
+    pomodoros:{},
+    todos:{}
   },
   clickTab: function(e) {
     this.changeActive(e.currentTarget.dataset.index)
@@ -26,12 +31,6 @@ Page({
       this.changeActive(e.detail.current)
     }
   },
-  onLoad: function(options) {
-
-  },
-  onReady: function() {
-
-  },
   onShow: function() {
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
@@ -39,20 +38,23 @@ Page({
         selected: 2
       })
     }
+    this.fetchPomodoros()
+    this.fetchTodos()
   },
-  onHide: function() {
-
+  fetchPomodoros:function(){
+    http.get('/tomatoes', { is_group: "yes" })
+    .then(res=>{
+      this.setData({
+        pomodoros:res.data.resources
+      })
+    })
   },
-  onUnload: function() {
-
-  },
-  onPullDownRefresh: function() {
-
-  },
-  onReachBottom: function() {
-
-  },
-  onShareAppMessage: function() {
-
-  }
+  fetchTodos: function () {
+    http.get('/todos', { is_group: "yes" })
+      .then(res => {
+        this.setData({
+          todos: res.data.resources
+        })
+      })
+   }
 })

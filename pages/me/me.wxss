@@ -26,7 +26,7 @@
   align-items: flex-start;
 }
 
-.header .username>text {
+.header .username>navigator {
   font-size: 20rpx;
   color: #f6705a;
   margin-top: 30rpx;
@@ -62,11 +62,15 @@
   transition: all 500ms;
 }
 
-.tabs.left .slider {
+.tabs view.active {
+  font-weight: bold;
+}
+
+.tabs .slider.left {
   left: calc(25% - 40rpx);
 }
 
-.tabs.right .slider {
+.tabs .slider.right {
   left: calc(75% - 40rpx);
 }
 
@@ -81,22 +85,26 @@
   flex: 1;
   overflow: hidden;
 }
-.panes .daliyWrapper{
+
+.panes .daliyWrapper {
   box-sizing: border-box;
   height: 100%;
   padding: 0 20rpx 20rpx;
 }
-.panes .daliy{
+
+.panes .daliy {
   background: #fff;
   margin-top: 25rpx;
   padding: 16rpx 28rpx 29rpx 40rpx;
   border-radius: 6rpx;
   font-size: 28rpx;
 }
-.panes .detail{
+
+.panes .detail {
   display: flex;
   margin-top: 23rpx;
 }
-.panes .detail .content{
+
+.panes .detail .content {
   margin-left: 25rpx;
 }
