@@ -1,6 +1,8 @@
 const {
-  http
-} = require('../../lib/http.js')
+  unCompletedTodo,
+  completedTodo,
+  allCompletedTodo
+} = require('../../api/home.js')
 
 Page({
 
@@ -13,7 +15,7 @@ Page({
   },
 
   onLoad: function(options) {
-    http.get("/todos?completed=false")
+    allCompletedTodo()
       .then(response => {
         this.setData({
           toDoList: response.data.resources
