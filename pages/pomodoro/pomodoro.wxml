@@ -5,11 +5,11 @@
   <view class='control' wx:if="{{status==='start'||status==='pause'||status==='initial'}}">
     <p-button size='small' text="{{status==='start'?'暂停':status==='pause'?'继续':'开始'}}" type='primary' bindptap="{{status==='start'?'pauseTimer':'startTimer'}}"></p-button>
   </view>
-  <view class='quit' wx:if="{{status==='start'||status==='pause'}}" bindtap='openConfirm'>
+  <view class='quit' wx:if="{{status==='start'||status==='pause'}}" bindtap='giveUpPomodoro'>
     <p-button size='small' text='放弃'></p-button>
   </view>
   <view class='again' wx:if="{{status==='end'}}">
     <p-button size='small' text='再来一次' type='primary' bindptap='againTimer'></p-button>
   </view>
 </view>
-<p-confirm content='{{description}}' visible="{{visible}}" placeholder="{{placeholder}}" basic="{{aborted?false:true}}" bind:ok='updatePomodoro' bind:input='confirmInput' bind:cancel='cancel' canClose='{{false}}'></p-confirm>
+<!-- <p-confirm content='{{description}}' visible="{{visible}}" placeholder="{{placeholder}}" basic="{{aborted?false:true}}" bind:ok='updatePomodoro' bind:input='confirmInput' bind:cancel='cancel' canClose='{{false}}'></p-confirm> -->
