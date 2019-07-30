@@ -18,9 +18,27 @@
     <view class='loginStatus'>
       <!-- <text>尚未登录</text> -->
     </view>
-    <navigator url='/pages/pomodoro/pomodoro' open-type='switchTab' hover-class='none' class="tomatoWrapper" bindtap='toPomodoros'>
+    <!-- <navigator url='/pages/pomodoro/pomodoro' open-type='switchTab' hover-class='none' class="tomatoWrapper" bindtap='toPomodoros'>
       <p-clock text='点击开始番茄'></p-clock>
-    </navigator>
+    </navigator> -->
     <p-confirm id='confirm1' content='{{content}}' visible="{{visible}}" placeholder="请输入任务内容" basic bind:ok='{{todoIndex?"updateTodo":"addTodo"}}' bind:input='todoInput' bind:close='closeConfirm'></p-confirm>
   </view>
 </view>
+<van-popup
+  show="{{ show }}"
+  position="left"
+  overlay="{{ true }}"
+  bind:close="onClose"
+  custom-class="left-popup"
+>
+<view class="left-popup_top">
+  <view class='avatar-setting-wrapper'>
+    <view class="popup-avatar">
+      <open-data type='userAvatarUrl'></open-data>
+    </view>
+  </view>
+  <view class="popup-username">
+    <open-data type='userNickName'></open-data>
+  </view>
+</view>
+</van-popup>
