@@ -4,6 +4,10 @@ const {
   allCompletedTodo
 } = require('../../api/home.js')
 
+const {
+  http
+} = require('../../lib/http.js')
+
 Page({
 
   data: {
