@@ -6,11 +6,11 @@ Component({
   data: {
     time: '25:00',
     status: 'initial', // initial、start、pause、end
-    second: 1500,
+    second: 150000,
     pageShow: false
   },
-  methods:{
-    onLoad() { },
+  methods: {
+    onLoad() {},
     onShow() {
       this.data.pageShow = true
       this.getTabBar().init();
@@ -33,7 +33,7 @@ Component({
         } else {
           this.timer = this.setTimer()
         }
-      }, 1000)
+      }, 10)
     },
     startTimer() {
       this.setData({
@@ -56,12 +56,12 @@ Component({
       }
     },
     againTimer() {
-      this.data.second = 1500
+      this.data.second = 150000
       this.converTime()
       this.startTimer()
     },
     converTime() {
-      let second = this.data.second
+      let second = this.data.second / 100
       let m = Math.floor(second / 60)
       let s = Math.floor(second % 60)
       if (s < 10) {
@@ -70,12 +70,14 @@ Component({
       if (m < 10) {
         m = '0' + m
       }
-      if (this.data.pageShow) {
-        this.setData({
-          time: `${m}:${s}`
-        })
-      } else {
-        this.data.time = `${m}:${s}`
+      if (this.data.time !== `${m}:${s}`) {
+        if (this.data.pageShow) {
+          this.setData({
+            time: `${m}:${s}`
+          })
+        } else {
+          this.data.time = `${m}:${s}`
+        }
       }
 
     },
@@ -87,7 +89,7 @@ Component({
       }).then(res => {
         let data = {
           status: 'initial',
-          second: 1500
+          second: 150000
         }
         this.setData(data)
         this.converTime()
@@ -95,5 +97,5 @@ Component({
       })
     }
   }
-  
+
 })
