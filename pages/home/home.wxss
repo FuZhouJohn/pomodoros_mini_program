@@ -11,7 +11,7 @@ view {
 }
 
 .main {
-  height: calc(100vh - 98rpx);
+  height: calc(100vh - 50px);
   display: flex;
   flex-direction: column;
   padding: 0 20rpx;
@@ -50,7 +50,7 @@ view {
   z-index: -1;
 }
 
-.todoList .item{
+.todoList .item {
   background-color: #fff;
   color: #333;
   box-shadow: 0rpx -2rpx 6rpx 0rpx rgba(0, 0, 0, 0.10);
@@ -79,7 +79,6 @@ view {
   height: 23rpx;
   border: 2rpx solid #f6705a;
   border-radius: 50%;
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,4 +114,32 @@ view {
 
 .clockWrapper>.tomatoWrapper {
   margin-top: 10rpx;
+}
+
+.left-popup {
+  height: 100%;
+  width: 500rpx;
+}
+
+.left-popup_top {
+  background: #f6705a;
+  padding: 30rpx 40rpx;
+}
+
+.avatar-setting-wrapper {
+  display: flex;
+}
+
+.popup-avatar {
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.popup-username{
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.08em;
 }

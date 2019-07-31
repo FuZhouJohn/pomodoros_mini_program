@@ -2,6 +2,7 @@
   "usingComponents": {
     "p-button": "/components/button/button",
     "p-clock": "/components/clock/clock",
-    "p-confirm": "/components/confirm/confirm"
+    "p-confirm": "/components/confirm/confirm",
+    "van-popup": "/miniprogram_npm/vant-weapp/popup/index"
   }
 }

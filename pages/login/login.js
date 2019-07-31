@@ -16,7 +16,6 @@ Page({
     
   },
   login: function(e) {
-    console.dir(e)
     let iv = e.detail.iv
     let encrypted_data = e.detail.encryptedData
     this.wxLogin(iv, encrypted_data)

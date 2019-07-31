@@ -1,5 +1,5 @@
 .container{
-  height: calc(100vh - 98rpx);
+  height: 100vh;
 }
 .clock{
   padding-top: 272rpx;
