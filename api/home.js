@@ -1,13 +1,19 @@
-import {http} from '../lib/http.js'
+import {
+  http
+} from '../lib/http.js'
 
 export function unCompletedTodo() {
-  return http.get('/todos', { completed:false})
+  return http.get('/todos', {
+    completed: false
+  })
 }
 
 export function completedTodo() {
-  return http.get('/todos', { completed: true })
+  return http.get('/todos', {
+    completed: true
+  })
 }
 
-export function allCompletedTodo(){
+export function allCompletedTodo() {
   return http.get('/todos')
 }
