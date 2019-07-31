@@ -1,14 +1,18 @@
 // pages/me/me.js
-const {
-  http
-} = require('../../lib/http.js')
+// const {
+//   http
+// } = require('../../lib/http.js')
+import {
+  fetchPomodoros,
+  fetchTodos
+} from '../../api/me.js'
 Page({
   data: {
     current: 0,
     activeTab: 'left',
     data: [],
-    pomodoros:{},
-    todos:{}
+    pomodoros: {},
+    todos: {}
   },
   clickTab: function(e) {
     this.changeActive(e.currentTarget.dataset.index)
@@ -32,29 +36,19 @@ Page({
     }
   },
   onShow: function() {
-    if (typeof this.getTabBar === 'function' &&
-      this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 2
-      })
-    }
-    this.fetchPomodoros()
-    this.fetchTodos()
-  },
-  fetchPomodoros:function(){
-    http.get('/tomatoes', { is_group: "yes" })
-    .then(res=>{
+    wx.showNavigationBarLoading()
+    Promise.all([fetchPomodoros(), fetchTodos()]).then(value => {
+      let pomodoros = value[0].data.resources
+      let todos = value[1].data.resources
+      for (let todo in todos) {
+        todos[todo] = todos[todo].filter(item => item.completed)
+      }
       this.setData({
-        pomodoros:res.data.resources
+        pomodoros,
+        todos
+      }, function() {
+        wx.hideNavigationBarLoading()
       })
     })
-  },
-  fetchTodos: function () {
-    http.get('/todos', { is_group: "yes" })
-      .then(res => {
-        this.setData({
-          todos: res.data.resources
-        })
-      })
-   }
+  }
 })

@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 98rpx);
+  height: 100vh;
 }
 
 .header {
@@ -89,15 +89,18 @@
 .panes .daliyWrapper {
   box-sizing: border-box;
   height: 100%;
-  padding: 0 20rpx 20rpx;
+  padding: 20rpx 20rpx;
 }
 
 .panes .daliy {
   background: #fff;
-  margin-top: 25rpx;
   padding: 16rpx 28rpx 29rpx 40rpx;
   border-radius: 6rpx;
   font-size: 28rpx;
+}
+
+.panes .daliy+.daliy {
+  margin-top: 25rpx;
 }
 
 .panes .detail {
