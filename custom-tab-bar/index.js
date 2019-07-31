@@ -4,21 +4,29 @@ Component({
     color: "#7F8389",
     selectedColor: "#F6705A",
     list: [{
-      pagePath: "/pages/home/home",
-      iconPath: "/images/home.png",
-      selectedIconPath: "/images/home-active.png",
-      text: "数据统计"
-    }, {
-      pagePath: "/pages/pomodoro/pomodoro",
-      iconPath: "/images/total.png",
-      selectedIconPath: "/images/total-active.png",
-      text: "专注"
-    }, {
-      pagePath: "/pages/me/me",
-      iconPath: "/images/me.png",
-      selectedIconPath: "/images/me-active.png",
-      text: "我的"
-    }],
+        pagePath: "/pages/home/home",
+        iconPath: "/images/home.png",
+        selectedIconPath: "/images/home-active.png",
+        text: "数据统计"
+      }, {
+        pagePath: "/pages/pomodoro/pomodoro",
+        iconPath: "/images/total.png",
+        selectedIconPath: "/images/total-active.png",
+        text: "专注"
+      },
+      {
+        pagePath: "/pages/hourglass/hourglass",
+        iconPath: "/images/hourglass.png",
+        selectedIconPath: "/images/hourglass-active.png",
+        text: "倒计时"
+      },
+      {
+        pagePath: "/pages/me/me",
+        iconPath: "/images/me.png",
+        selectedIconPath: "/images/me-active.png",
+        text: "我的"
+      }
+    ],
     show: true
   },
   attached() {},

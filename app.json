@@ -4,7 +4,8 @@
     "pages/home/home",
     "pages/binding/binding",
     "pages/me/me",
-    "pages/pomodoro/pomodoro"
+    "pages/pomodoro/pomodoro",
+    "pages/hourglass/hourglass"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -30,6 +31,13 @@
         "text": "数据统计",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home-active.png"
+      },
+      
+      {
+        "pagePath": "pages/hourglass/hourglass",
+        "text": "倒计时",
+        "iconPath": "images/hourglass.png",
+        "selectedIconPath": "images/hourglass-active.png"
       },
       {
         "pagePath": "pages/me/me",
