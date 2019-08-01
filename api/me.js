@@ -1,4 +1,6 @@
-import { http } from '../lib/http.js'
+const {
+  http
+} = require('../lib/http.js')
 
 export function fetchPomodoros(){
   return http.get('/tomatoes', { is_group: "yes" })

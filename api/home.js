@@ -1,6 +1,6 @@
-import {
+const {
   http
-} from '../lib/http.js'
+} = require('../lib/http.js')
 
 export function unCompletedTodo() {
   return http.get('/todos', {
