@@ -1,12 +1,13 @@
 const {
-  http
-} = require('../../lib/http.js')
+  addPomodoro,
+  updatePomodoro
+} = require('../../api/pomodoro.js')
 Component({
   timer: null,
   data: {
     time: '25:00',
     status: 'initial', // initial、start、pause、end
-    second: 150000,
+    second: 1500,
     pageShow: false
   },
   methods: {
@@ -24,6 +25,10 @@ Component({
         this.data.second = this.data.second - 1
         this.converTime()
         if (this.data.second <= 0) {
+          updatePomodoro(this.data['pomodoro-id'], {
+            description: '',
+            aborted: false
+          })
           clearTimeout(this.timer)
           wx.vibrateLong()
           this.setData({
@@ -36,16 +41,18 @@ Component({
       }, 10)
     },
     startTimer() {
+      if (this.data.status === 'initial' || this.data.status === 'end') {
+        addPomodoro()
+          .then(res => {
+            let pomodoro = res.data.resource
+            this.data['pomodoro-id'] = pomodoro.id
+          })
+      }
       this.setData({
         status: 'start'
       })
       this.getTabBar().hideTabbar()
       this.timer = this.setTimer()
-      http.post('/tomatoes')
-        .then(res => {
-          let pomodoro = res.data.resource
-          this.data['pomodoro-id'] = pomodoro.id
-        })
     },
     pauseTimer() {
       this.setData({
@@ -83,7 +90,7 @@ Component({
     },
     giveUpPomodoro() {
       this.pauseTimer()
-      http.put(`/tomatoes/${this.data['pomodoro-id']}`, {
+      updatePomodoro(this.data['pomodoro-id'], {
         description: '',
         aborted: true
       }).then(res => {
