@@ -1,11 +1,10 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/home/home",
     "pages/binding/binding",
     "pages/me/me",
     "pages/pomodoro/pomodoro",
-    "pages/hourglass/hourglass"
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,7 +14,6 @@
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
-    "custom": true,
     "color": "#7F8389",
     "selectedColor": "#F6705A",
     "backgroundColor": "#ffffff",
@@ -31,13 +29,6 @@
         "text": "数据统计",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home-active.png"
-      },
-      
-      {
-        "pagePath": "pages/hourglass/hourglass",
-        "text": "倒计时",
-        "iconPath": "images/hourglass.png",
-        "selectedIconPath": "images/hourglass-active.png"
       },
       {
         "pagePath": "pages/me/me",

@@ -4,28 +4,24 @@ const {
 } = require('../../api/pomodoro.js')
 Component({
   timer: null,
+  pomodoroId: null,
   data: {
     time: '25:00',
     status: 'initial', // initial、start、pause、end
-    second: 1500,
-    pageShow: false
+    second: 150000
   },
   methods: {
     onLoad() {},
     onShow() {
-      this.data.pageShow = true
-      this.getTabBar().init();
-      this.converTime()
+      this.converTime(this.data.second)
     },
-    onHide() {
-      this.data.pageShow = false
-    },
+    onHide() {},
     setTimer() {
       return setTimeout(() => {
         this.data.second = this.data.second - 1
-        this.converTime()
+        this.converTime(this.data.second)
         if (this.data.second <= 0) {
-          updatePomodoro(this.data['pomodoro-id'], {
+          updatePomodoro(this.pomodoroId, {
             description: '',
             aborted: false
           })
@@ -34,7 +30,6 @@ Component({
           this.setData({
             status: 'end'
           })
-          this.getTabBar().showTabbar()
         } else {
           this.timer = this.setTimer()
         }
@@ -45,13 +40,12 @@ Component({
         addPomodoro()
           .then(res => {
             let pomodoro = res.data.resource
-            this.data['pomodoro-id'] = pomodoro.id
+            this.pomodoroId = pomodoro.id
           })
       }
       this.setData({
         status: 'start'
       })
-      this.getTabBar().hideTabbar()
       this.timer = this.setTimer()
     },
     pauseTimer() {
@@ -64,13 +58,13 @@ Component({
     },
     againTimer() {
       this.data.second = 150000
-      this.converTime()
+      this.converTime(this.data.second)
       this.startTimer()
     },
-    converTime() {
-      let second = this.data.second / 100
-      let m = Math.floor(second / 60)
-      let s = Math.floor(second % 60)
+    converTime(second) {
+      let _second = second / 100
+      let m = Math.floor(_second / 60)
+      let s = Math.floor(_second % 60)
       if (s < 10) {
         s = '0' + s
       }
@@ -78,19 +72,15 @@ Component({
         m = '0' + m
       }
       if (this.data.time !== `${m}:${s}`) {
-        if (this.data.pageShow) {
-          this.setData({
-            time: `${m}:${s}`
-          })
-        } else {
-          this.data.time = `${m}:${s}`
-        }
+        this.setData({
+          time: `${m}:${s}`
+        })
       }
 
     },
     giveUpPomodoro() {
       this.pauseTimer()
-      updatePomodoro(this.data['pomodoro-id'], {
+      updatePomodoro(this.pomodoroId, {
         description: '',
         aborted: true
       }).then(res => {
@@ -99,8 +89,7 @@ Component({
           second: 150000
         }
         this.setData(data)
-        this.converTime()
-        this.getTabBar().showTabbar()
+        this.converTime(this.data.second)
       })
     }
   }

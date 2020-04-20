@@ -36,7 +36,6 @@ Page({
     }
   },
   onShow: function() {
-    this.getTabBar().init();
     wx.showNavigationBarLoading();
     Promise.all([fetchPomodoros(), fetchTodos()]).then(value => {
       let pomodoros = value[0].data.resources;

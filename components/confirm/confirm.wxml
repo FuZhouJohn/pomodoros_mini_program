@@ -1,7 +1,7 @@
 <!-- <view class="confirmWrapper" hidden='{{!visible}}'> -->
   <view class="confirm" hidden='{{!visible}}'>
-    <input value='{{content}}' placeholder='{{placeholder}}' wx:if="{{!basic}}" bindinput='inputContent'></input>
-    <textarea value='{{content}}' placeholder='{{placeholder}}' wx:else bindinput='inputContent'></textarea>
+    <input class="input" value='{{content}}' placeholder='{{placeholder}}' wx:if="{{!basic}}" bindinput='inputContent'></input>
+    <textarea class="textarea" value='{{content}}' placeholder='{{placeholder}}' wx:else bindinput='inputContent'></textarea>
     <view class='buttons'>
       <view class='button ok' bindtap='ok'>确定</view>
       <view class="border" wx:if="{{!basic}}"></view>

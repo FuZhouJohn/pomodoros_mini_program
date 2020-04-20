@@ -24,7 +24,6 @@ Page({
       .then(response => {
         this.setData({
           toDoList: response.data.resources,
-
         })
       })
   },
@@ -104,12 +103,6 @@ Page({
 
       })
     this.data.toDoList[index]
-  },
-  onShow() {
-    this.getTabBar().init();
-    this.setData({
-      show:true
-    })
   },
   todoDetail: function(e) {
     let index = e.currentTarget.dataset.index

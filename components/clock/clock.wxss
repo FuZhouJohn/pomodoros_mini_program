@@ -13,7 +13,7 @@
 .clockHover{
   opacity: 0.9;
 }
-.clock>image {
+.clock>.image {
   position: absolute;
   left: 0;
   top: 0;
@@ -22,14 +22,14 @@
   z-index: -1;
 }
 
-.clock>text {
+.clock>.text {
   margin-left: 2rpx;
   margin-bottom: 24rpx;
   font-size: 26rpx;
   color: white;
   letter-spacing: 0.4rpx;
 }
-.clock>text.big{
+.clock>.text.big{
   font-size: 56rpx;
   letter-spacing: 5px;
 }

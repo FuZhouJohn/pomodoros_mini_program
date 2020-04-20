@@ -1,8 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "van-tabbar": "/miniprogram_npm/vant-weapp/tabbar/index",
-    "van-tabbar-item": "/miniprogram_npm/vant-weapp/tabbar-item/index",
-    "van-transition": "/miniprogram_npm/vant-weapp/transition/index"
-  }
-}

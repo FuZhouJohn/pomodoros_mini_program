@@ -1,8 +1,0 @@
-<van-transition show="{{ show }}" name="fade-up">
-  <van-tabbar active="{{ active }}" active-color="{{selectedColor}}" inactive-color="{{color}}" bind:change="onChange">
-    <van-tabbar-item wx:for="{{ list }}" wx:key="index">
-      <image slot="icon" src="{{ item.iconPath }}" mode="aspectFit" />
-      <image slot="icon-active" src="{{ item.selectedIconPath }}" mode="aspectFit" /> {{ item.text }}
-    </van-tabbar-item>
-  </van-tabbar>
-</van-transition>
